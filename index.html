@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monster Killer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel" v-if="screen === 'home'">
+            <p>Hello, this is my implementation of Monster Killer game suggested by Leonardo,</p>
+            <p>instructor of <a href="https://www.udemy.com/vue-js-completo">Curso Vue JS 2</a>.</p>
+        </div>  
+        <div v-else-if="screen === 'playing'" class="panel scores">
+            <div class="score">
+                <h1>Player</h1>
+                <div class="lifebar">
+                    <div class="life-value"
+                    :class="{danger: playerLife < 30}"
+                    :style="{width: playerLife + '%'}"></div>
+                </div>
+                <div class="life">
+                    {{ playerLife }}%
+                </div>
+            </div>
+            <div class="score">
+                <h1>Monster</h1>
+                <div class="lifebar">
+                    <div class="life-value"
+                    :class="{danger: monsterLife < 30}"
+                    :style="{width: monsterLife + '%'}"></div>
+                </div>
+                <div class="life">
+                    {{ monsterLife }}%
+                </div>
+            </div>
+        </div>
+        <div v-else class="panel results">
+            <p v-show="isPlayerWinner" style='color: rgb(54, 231, 48)'>Congraaatzzz</p>
+            <p v-show="!isPlayerWinner" style='color: rgb(235, 28, 28)'>Better luck next time...</p>
+        </div>
+        <div class="panel buttons">
+            <template v-if="screen === 'playing'">
+                <button class="btn normal" @click="doNormalAttack">Normal Attack</button>
+                <button class="btn special" @click="doSpecialAttack">Special Attack</button>
+                <button class="btn heal" @click="doHeal">Heal</button>
+                <button class="btn giveup" @click="screen = 'home'">Give Up</button>
+            </template>
+            <template v-else-if="screen === 'final'">
+                    <button class="btn management" @click="startNewMatch">Play again</button>
+                    <button class="btn management" @click="screen = 'home'">Home Screen</button>
+            </template>
+            <template v-else-if="screen === 'home'">
+                    <button class="btn management" @click="startNewMatch">Start!</button>
+            </template>
+            
+        </div>
+        <div v-if="screen === 'playing'" class="panel logs">
+            <ul>
+                <li v-for="entry in log">
+                    <p class="player">{{ entry.msg1 }}</p>
+                    <p class="monster">{{ entry.msg2 }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

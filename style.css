@@ -1,0 +1,137 @@
+/* General rules */
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    text-align: center;
+}
+
+.panel {
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+    background-color: rgb(224, 222, 222);
+    border-radius: 4px;
+}
+
+body {
+    background-color: rgb(168, 204, 252);
+}
+
+/* Score rules */
+
+.scores {
+    display: flex;
+}
+
+.score {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lifebar {
+    margin: 10px;
+    padding: 1px;
+    height: 20px;
+    width: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.life-value {
+    height: 100%;
+    background-color: rgba(39, 235, 65, 0.856);
+}
+
+.life-value.danger {
+    background-color: rgba(241, 45, 45, 0.877);
+}
+
+/* Buttons rules */
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    height: 40px;
+    margin: 10px;
+    padding: 5px;
+    border: 1px none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.btn.normal {
+    background-color: gray;
+    color: black;
+}
+
+.btn.special {
+    background-color: goldenrod;
+    color: black;
+}
+
+.btn.heal {
+    background-color: green;
+    color: white;
+}
+
+.btn.giveup {
+    background-color: red;
+    color: white;
+}
+
+.btn.management {
+    background-color: rgb(88, 86, 202);
+    color: white;
+}
+
+/*Log rules*/
+
+ul {
+    list-style: none;
+}
+
+li p {
+    margin: 1px;
+    padding: 2px;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    border-radius: 3px;
+    margin: 5px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+li .player {
+    flex: 1;
+    background-color: rgb(88, 86, 202);
+    color: black;
+    border-radius: 3px;
+}
+
+li .monster {
+    flex: 1;
+    background-color: rgb(189, 46, 146);
+    color: black;
+    border-radius: 3px;
+}
